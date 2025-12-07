@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-3">Edit Item</h2>
+
+<form method="post" class="card p-3">
+    <div class="mb-3">
+        <label class="form-label">Item Name</label>
+        <input type="text" name="name" class="form-control" value="{{ item.name }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Quantity</label>
+        <input type="number" name="quantity" class="form-control" value="{{ item.quantity }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input type="number" step="0.01" name="price" class="form-control" value="{{ item.price }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea name="description" class="form-control" rows="3">{{ item.description }}</textarea>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Update</button>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
